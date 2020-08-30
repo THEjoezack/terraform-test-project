@@ -1,6 +1,6 @@
 # Terraform sample project
 
-This project contains a basic Teraform project to be used as a reference, for fun.
+This project contains a basic Terraform project to be used as a reference, for fun.
 
 Check out gcp/main.tf for a listing of all resources, but roughly this will create a compute instance in a vpc with a public ip, and a storage bucket.
 
