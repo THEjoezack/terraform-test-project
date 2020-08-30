@@ -41,10 +41,18 @@ x get basic terraform example project running
 - `cd gcp && terraform init`
 - `terraform plan`
 - `terraform apply`
+- gcloud compute networks list 
 
 ## Running the project
 
 ```bash
 cd gcp
-terraform
+terraform apply
 ```
+
+
+## Resources
+
+- Getting Started with Terraform on GCP: https://learn.hashicorp.com/tutorials/terraform/google-cloud-platform-builld?in=terraform/gcp-get-started
+- GCP Provider Documentation: https://www.terraform.io/docs/providers/google/index.html
+- Terraform Configuration Language Documentation: https://www.terraform.io/docs/configuration/index.html
