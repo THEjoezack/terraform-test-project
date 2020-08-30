@@ -50,7 +50,6 @@ cd gcp
 terraform apply
 ```
 
-
 ## Resources
 
 - Getting Started with Terraform on GCP: https://learn.hashicorp.com/tutorials/terraform/google-cloud-platform-builld?in=terraform/gcp-get-started
