@@ -1,4 +1,4 @@
-# Terraform sample project
+# Terraform Test Project
 
 This project contains a basic Terraform project to be used as a reference, for fun.
 
