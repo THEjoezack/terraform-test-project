@@ -1,57 +1,74 @@
+# Terraform sample project
+
+This project contains a basic Teraform project to be used as a reference, for fun.
+
+Check out gcp/main.tf for a listing of all resources, but roughly this will create a compute instance in a vpc with a public ip, and a storage bucket.
+
 ## Goals
 
-Get some high level experience with some new stuff (like Terraform, Python, and Prometheus) while re-enforcing some basic devops skills (Docker/Kubernetes)
+Get some high level experience with some new-to-me technologies while re-enforcing some existing ones.
 
-## Technologies
-- terraform
-- flask
-- statsd
-- prometheus
-- grafana
-- docker
-- kubernetes
-- skaffold
-- networking
-- gcp
-  - container registry
-  - cloud build
+### Technologies Used
 
+- Google Cloud Platform
+  - Storage
+  - Compute
+  - VPC
+  - DNS
+  - gcloud
+- Terraform
+  - VS Code Plugin
 
-## Short-Term Goal
+## Instructions
 
-x get basic terraform example project running
-- get a basic container running in a gcp project
-
-
-## What have we done?
-
-- installed terraform
-- installed VS Code plugin from Hashicorp
-- terraform init
-- terraform apply/destroy the basic ngninx example
-- gcloud components update
-- manually create a gcp project (terraform-288015) (can't use [google_project](https://www.terraform.io/docs/providers/google/r/google_project.html) without an organization)
-- enable the Compute Engine API for this project: https://console.developers.google.com/apis/library/compute.googleapis.com?pli=1
-- create a service account with "Project Editor" permission
-- create a json key for the service account
-- gcloud config set project terraform-288015
-- gcloud compute regions list  --filter="name~'east'"
-- gcloud compute zones list --filter="name~'us-east'"
-- created gcp/main.tf, populated the values from above (zone, project)
-- `cd gcp && terraform init`
-- `terraform plan`
-- `terraform apply`
-- gcloud compute networks list 
+- Requires GCP Account, project
+- Requires gcloud installed
+- Recommended VS Code Plugin for Terraform
+- Manually create a project (using terraform-288015 as a stand-in below, can't provision projects without an org so this can't be dynamic)
+- Enable the Compute Engine API for this project: https://console.developers.google.com/apis/library/compute.googleapis.com?pli=1
+- Create a service account with "Project Editor" permission
+- Create a json key for the service account (named gcp.key in below examples)
 
 ## Running the project
 
+(note: substitute your project name below instead of terraform-288015)
+
 ```bash
 cd gcp
-terraform apply
+
+# Record the changes required
+terraform plan `
+  -var "credentials_file=gcp.key" `
+  -var "project=terraform-288015" `
+  -out plan
+
+# Apply the plan
+terraform apply plan
+
+# See the results of the compute provisioner, this file will record when ip are associated
+cat .\ip_address.txt
+
+# Refresh the outputs
+terraform refresh `
+  -var "credentials_file=gcp.key" `
+  -var "project=terraform-288015" `
+
+# Display the outputs
+terraform output
+
+# Tear it all down
+terraform destroy `
+  -var "credentials_file=gcp.key" `
+  -var "project=terraform-288015" `
 ```
+
+## TODO
+
+Up next, let's get a basic cluster running up in GKE with a simple flask app running.
 
 ## Resources
 
-- Getting Started with Terraform on GCP: https://learn.hashicorp.com/tutorials/terraform/google-cloud-platform-builld?in=terraform/gcp-get-started
-- GCP Provider Documentation: https://www.terraform.io/docs/providers/google/index.html
-- Terraform Configuration Language Documentation: https://www.terraform.io/docs/configuration/index.html
+- [Getting Started with Terraform on GCP](https://learn.hashicorp.com/tutorials/terraform/google-cloud-platform-builld?in=terraform/gcp-get-started)
+- [GCP Provider Documentation](https://www.terraform.io/docs/providers/google/index.html)
+- [Terraform Configuration Language Documentation](https://www.terraform.io/docs/configuration/index.html)
+- [Terraform Examples](https://www.terraform.io/intro/examples/index.html)
