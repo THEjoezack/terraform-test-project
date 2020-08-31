@@ -25,7 +25,11 @@ Get some high level experience with some new-to-me technologies while re-enforci
 - Requires gcloud installed
 - Recommended VS Code Plugin for Terraform
 - Manually create a project (using terraform-288015 as a stand-in below, can't provision projects without an org so this can't be dynamic)
-- Enable the Compute Engine API for this project: https://console.developers.google.com/apis/library/compute.googleapis.com?pli=1
+- [Enable the following API](https://console.cloud.google.com/apis/library):
+  - Compute Engine
+  - Kubernetes API
+  - Kubernetes Engine AP
+  - Cloud Resource Manager
 - Create a service account with "Project Editor" permission
 - Create a json key for the service account (named gcp.key in below examples)
 
@@ -68,3 +72,6 @@ Up next, let's get a basic cluster running up in GKE with a simple flask app run
 - [GCP Provider Documentation](https://www.terraform.io/docs/providers/google/index.html)
 - [Terraform Configuration Language Documentation](https://www.terraform.io/docs/configuration/index.html)
 - [Terraform Examples](https://www.terraform.io/intro/examples/index.html)
+- [GKE Terraform Resources](https://www.terraform.io/docs/providers/google/r/container_cluster.html)
+- [GKE Terraform Guide](https://www.terraform.io/docs/providers/google/guides/using_gke_with_terraform.html)
+- [Google's GKE Module](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/11.0.0)
