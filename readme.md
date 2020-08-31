@@ -36,11 +36,11 @@ Get some high level experience with some new-to-me technologies while re-enforci
 ```bash
 cd gcp
 
+# get th ball rolling
+terraform init
+
 # Record the changes required
-terraform plan `
-  -var "credentials_file=gcp.key" `
-  -var "project=terraform-288015" `
-  -out plan
+terraform plan -out plan
 
 # Apply the plan
 terraform apply plan
@@ -49,17 +49,13 @@ terraform apply plan
 cat .\ip_address.txt
 
 # Refresh the outputs
-terraform refresh `
-  -var "credentials_file=gcp.key" `
-  -var "project=terraform-288015" `
+terraform refresh
 
 # Display the outputs
 terraform output
 
 # Tear it all down
-terraform destroy `
-  -var "credentials_file=gcp.key" `
-  -var "project=terraform-288015" `
+terraform destroy
 ```
 
 ## TODO

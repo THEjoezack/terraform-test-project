@@ -1,6 +1,10 @@
-variable "project" {}
+variable "project" {
+  default = "terraform-288015"
+}
 
-variable "credentials_file" {}
+variable "credentials_file" {
+  default = "gcp.key"
+}
 
 variable "region" {
   default = "us-east1"
