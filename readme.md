@@ -18,11 +18,16 @@ Get some high level experience with some new-to-me technologies while re-enforci
   - gcloud
 - Terraform
   - VS Code Plugin
+- Helm
 
 ## Instructions
 
-- Requires GCP Account, project
-- Requires gcloud installed
+- Requires
+  - gcp account
+  - gcp project
+  - kubectl
+  - helm
+  - gcloud installed
 - Recommended VS Code Plugin for Terraform
 - Manually create a project (using terraform-288015 as a stand-in below, can't provision projects without an org so this can't be dynamic)
 - [Enable the following API](https://console.cloud.google.com/apis/library):

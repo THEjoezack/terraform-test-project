@@ -29,3 +29,7 @@ variable "cluster_username" {
 variable "cluster_password" {
   default = "fif2i3@@11422f3#1f"
 }
+
+variable "cluster_name" {
+  default = "test-cluster"
+}
