@@ -58,6 +58,10 @@ terraform refresh
 # Display the outputs
 terraform output
 
+gcloud config set project terraform-288015
+
+gcloud container clusters get-credentials test-cluster --zone us-east1-d
+
 # Tear it all down
 terraform destroy
 ```
