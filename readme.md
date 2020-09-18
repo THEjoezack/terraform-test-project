@@ -72,3 +72,5 @@ Up next, let's get a basic cluster running up in GKE with a simple flask app run
 - [GCP Provider Documentation](https://www.terraform.io/docs/providers/google/index.html)
 - [Terraform Configuration Language Documentation](https://www.terraform.io/docs/configuration/index.html)
 - [Terraform Examples](https://www.terraform.io/intro/examples/index.html)
+
+t
